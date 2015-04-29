@@ -1,7 +1,7 @@
 ecorepay-magento
 ================
 
-As of now, there are no EcorePay payment gateway module available for Magento.
+As of now, there is no EcorePay payment gateway module available for Magento.
 
 This repository introduces Ecorepay payment gateway module for Magento.
 
