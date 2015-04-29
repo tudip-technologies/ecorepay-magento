@@ -10,55 +10,45 @@ class Tudip_Ecorepay_Model_PaymentMethod extends Mage_Payment_Model_Method_Cc
     */
      protected $_code = 'ecorepay';
 
-    /**
-     * Here are examples of flags that will determine functionality availability
-     * of this module to be used by frontend and backend.
-     *
-     * @see all flags and their defaults in Mage_Payment_Model_Method_Abstract
-     *
-     * It is possible to have a custom dynamic logic by overloading
-     * public function can* for each flag respectively
-     */
-
      /**
      * Is this payment method a gateway (online auth/charge) ?
      */
-     protected $_isGateway               = true;
+     protected $_isGateway = true;
 
     /**
      * Can authorize online?
      */
-    protected $_canAuthorize            = true;
+    protected $_canAuthorize = true;
 
     /**
      * Can capture funds online?
      */
-    protected $_canCapture              = true;
+    protected $_canCapture = true;
 
     /**
      * Can capture partial amounts online?
      */
-    protected $_canCapturePartial       = false;
+    protected $_canCapturePartial = false;
 
     /**
      * Can refund online?
      */
-    protected $_canRefund               = false;
+    protected $_canRefund = false;
 
     /**
      * Can void transactions online?
      */
-    protected $_canVoid                 = true;
+    protected $_canVoid = true;
 
     /**
      * Can use this payment method in administration panel?
      */
-    protected $_canUseInternal          = true;
+    protected $_canUseInternal = true;
 
     /**
      * Can show this payment method as an option on checkout payment page?
      */
-    protected $_canUseCheckout          = true;
+    protected $_canUseCheckout = true;
 
     /**
      * Is this payment method suitable for multi-shipping checkout?
@@ -71,14 +61,10 @@ class Tudip_Ecorepay_Model_PaymentMethod extends Mage_Payment_Model_Method_Cc
     protected $_canSaveCc = false;
 
     /**
-     * Here you will need to implement authorize, capture and void public methods
+     * This method handles the authorization mechanism used by the EcorePay payment gateway.
      *
-     * @see examples of transaction specific public methods such as
-     * authorize, capture and void in Mage_Paygate_Model_Authorizenet
      */
-
-
-	public function authorize(Varien_Object $payment, $amount){
+      public function authorize(Varien_Object $payment, $amount){
     		$order = $payment->getOrder();
 		try {
     			$billingaddress = $order->getBillingAddress();
